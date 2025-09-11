@@ -6,6 +6,7 @@
     <title>Document</title>
   </head>
   <body>
+    <h2>買い物リスト</h2>
     <h1>調味料・食材 〜購入〜</h1>
     <h2>調味料</h2>
     <form 
@@ -13,6 +14,21 @@
     action="https://script.google.com/macros/s/AKfycbyBdu5n01u4teYGLNI6svKpNKgGMw-y3MJeSxSJ0I0IATxkB7E36ghc1IZEmedcGms/exec"
     method="post"
     >
+
+   <select name="調味料" id="condiment">
+    <option>調味料のジャンルを選択</option>
+    <option value="1">塩・砂糖</option>
+    <option value="2">醤油・酒・油</option>
+    <option value="3">バター・ジャム</option>
+    <option value="4">ケチャップ・マヨネーズ</option>
+    <option value="5">柚子胡椒・からし</option>
+    <option value="6">味噌</option>
+    <option value="7">ソース</option>
+    <option value="8">天かす</option> 
+    <option value="9">小麦粉</option>
+   </select>
+
+    <div class="C1 close">
     <h3>塩・砂糖</h3><br>
       <label>塩 </label
       ><meter
@@ -56,7 +72,8 @@
       >
       
       <input type="tel" name="塩胡椒" size="3px"><br>
-
+    </div>
+    <div class="C2 close">
     <h3>醤油・酒・油</h3><br>
       <label>醤油 </label
       ><meter
@@ -191,7 +208,8 @@
       
       <input type="tel" name="ラー油" size="3px"><br>
       
-  
+    </div>
+    <div class="C3 close">
       <h3>バター・ジャム</h3><br>
       <label>バター </label
         ><meter
@@ -258,7 +276,8 @@
                         <input type="tel" name="ハチミツ" size="3px"><br>
                         
                      
-
+    </div>
+    <div class="C4 close">
       <h3>ケチャップ・マヨネーズ</h3><br>
       <label>ケチャップ</label
       ><meter
@@ -289,6 +308,8 @@
       
       <input type="tel" name="マヨネーズ" size="3px"><br>
       
+    </div>
+    <div class="C5 close">
       <h3>柚子胡椒・からし</h3><br>
 
       <label>柚子胡椒 </label
@@ -347,6 +368,8 @@
       
       <input type="tel" name="レモン汁" size="3px"><br>
 
+    </div>
+    <div class="C6 close">
       <h3>味噌</h3><br>
       <label>味噌 </label
       ><meter
@@ -362,6 +385,8 @@
       
       <input type="tel" name="味噌" size="3px"><br>
       
+    </div>
+    <div class="C7 close">
       <h3>ソース</h3><br>
       <label>ウスターソース </label
       ><meter
@@ -452,6 +477,8 @@
       
       <input type="tel" name="味覇" size="3px"><br>
     
+    </div>
+    <div class="C8 close">
     <h3>天かす</h3><br />
       <label>天かす </label
       ><meter
@@ -496,63 +523,188 @@
       
       <input type="tel" name="紅しょうが" size="3px"><br>
 
-    <h3>小麦粉</h3><br />
+    </div>
+    <div class="C9 close">
+      <h3>小麦粉</h3><br />
       <label>小麦粉 </label
-      ><meter
-        id="小麦粉"
-        min="0"
-        max="1"
-        low="0.3"
-        high="0.8"
-        optimum="0.85"
-        value=""
-      ></meter
-      >
-      
-      <input type="tel" name="小麦粉" size="3px">
+        ><meter
+          id="小麦粉"
+          min="0"
+          max="1"
+          low="0.3"
+          high="0.8"
+          optimum="0.85"
+          value=""
+        ></meter
+        >
+        <input type="tel" name="小麦粉" size="3px">
 
-    <br />
-      <label>片栗粉 </label
-      ><meter
-        id="片栗粉"
-        min="0"
-        max="1"
-        low="0.3"
-        high="0.8"
-        optimum="0.85"
-        value=""
-      ></meter
-      >
-      
-      <input type="tel" name="片栗粉" size="3px">
+      <br />
+        <label>片栗粉 </label
+        ><meter
+          id="片栗粉"
+          min="0"
+          max="1"
+          low="0.3"
+          high="0.8"
+          optimum="0.85"
+          value=""
+        ></meter
+        >
+        
+        <input type="tel" name="片栗粉" size="3px">
 
-    <br />
-      <label>パン粉 </label
-      ><meter
-        id="パン粉"
-        min="0"
-        max="1"
-        low="0.3"
-        high="0.8"
-        optimum="0.85"
-        value=""
-      ></meter
-      >
+      <br />
+        <label>パン粉 </label
+        ><meter
+          id="パン粉"
+          min="0"
+          max="1"
+          low="0.3"
+          high="0.8"
+          optimum="0.85"
+          value=""
+        ></meter
+        >
+        
+        <input type="tel" name="パン粉" size="3px">
+      </div>
+        <br /><br>
+      <input type="submit" value="送信" class="cSubmit">
+        </form>
+  
+  
+    <script>
+      const select = document.getElementById('condiment')
+      const C1 = document.querySelector('.C1')
+      const C2 = document.querySelector('.C2')
+      const C3 = document.querySelector('.C3')
+      const C4 = document.querySelector('.C4')
+      const C5 = document.querySelector('.C5')
+      const C6 = document.querySelector('.C6')
+      const C7 = document.querySelector('.C7')
+      const C8 = document.querySelector('.C8')
+      const C9 = document.querySelector('.C9')
       
-      <input type="tel" name="パン粉" size="3px">
 
-      <br /><br>
-    <input type="submit" value="送信">
-      </form>
+      select.addEventListener("change" , () => {
+        const selectedOption = select.value; 
+        console.log(selectedOption)
+        if(selectedOption == 1){
+           C1.classList.toggle('close');
+           C2.classList.add('close');
+           C3.classList.add('close');
+           C4.classList.add('close');
+           C5.classList.add('close');
+           C6.classList.add('close');
+           C7.classList.add('close');
+           C8.classList.add('close');
+           C9.classList.add('close');
+        } else if (selectedOption == 2){
+          C2.classList.toggle('close');
+           C1.classList.add('close');
+           C3.classList.add('close');
+           C4.classList.add('close');
+           C5.classList.add('close');
+           C6.classList.add('close');
+           C7.classList.add('close');
+           C8.classList.add('close');
+           C9.classList.add('close');
+        }  else if (selectedOption == 3){
+          C3.classList.toggle('close');
+           C2.classList.add('close');
+           C1.classList.add('close');
+           C4.classList.add('close');
+           C5.classList.add('close');
+           C6.classList.add('close');
+           C7.classList.add('close');
+           C8.classList.add('close');
+           C9.classList.add('close');
+        } else if (selectedOption == 4){
+          C4.classList.toggle('close');
+           C2.classList.add('close');
+           C3.classList.add('close');
+           C1.classList.add('close');
+           C5.classList.add('close');
+           C6.classList.add('close');
+           C7.classList.add('close');
+           C8.classList.add('close');
+           C9.classList.add('close');
+        } else if (selectedOption == 5){
+          C5.classList.toggle('close');
+           C2.classList.add('close');
+           C3.classList.add('close');
+           C4.classList.add('close');
+           C1.classList.add('close');
+           C6.classList.add('close');
+           C7.classList.add('close');
+           C8.classList.add('close');
+           C9.classList.add('close');
+        } else if (selectedOption == 6){
+          C6.classList.toggle('close');
+           C2.classList.add('close');
+           C3.classList.add('close');
+           C4.classList.add('close');
+           C5.classList.add('close');
+           C1.classList.add('close');
+           C7.classList.add('close');
+           C8.classList.add('close');
+           C9.classList.add('close');
+        } else if (selectedOption == 7){
+          C7.classList.toggle('close');
+           C2.classList.add('close');
+           C3.classList.add('close');
+           C4.classList.add('close');
+           C5.classList.add('close');
+           C6.classList.add('close');
+           C1.classList.add('close');
+           C8.classList.add('close');
+           C9.classList.add('close');
+        } else if (selectedOption == 8){
+          C8.classList.toggle('close');
+           C2.classList.add('close');
+           C3.classList.add('close');
+           C4.classList.add('close');
+           C5.classList.add('close');
+           C6.classList.add('close');
+           C7.classList.add('close');
+           C1.classList.add('close');
+           C9.classList.add('close');
+        } else if (selectedOption == 9){
+          C9.classList.toggle('close');
+           C2.classList.add('close');
+           C3.classList.add('close');
+           C4.classList.add('close');
+           C5.classList.add('close');
+           C6.classList.add('close');
+           C7.classList.add('close');
+           C8.classList.add('close');
+           C1.classList.add('close');
+        } 
+
+    });
+    </script>
 
       <h2>食材</h2>
-
       <form 
     id="userForm2"
     action="https://script.google.com/macros/s/AKfycbzEmUVNXLpS8Jy0ty-cbsm3Tz4tKgPVpHMm04TAXi7SXUfyVcP4R9GTM3SsSI5Pp1auzw/exec"
     method="post"
     >
 
+    <select name="調味料" id="ingredients">
+      <option>調味料のジャンルを選択</option>
+      <option value="1">肉類</option>
+      <option value="2">野菜</option>
+      <option value="3">イモ類</option>
+      <option value="4">乳製品・卵</option>
+      <option value="5">豆・豆腐</option>
+      <option value="6">麺類</option>
+      <option value="7">その他</option>
+     </select>
+     <div></div>
+
+     <div class="I1 close">
       <h3>肉類</h3><br>
 
         <label>牛薄切り肉</label> <input type="number" name="牛薄切り肉" size="4px"><br>
@@ -567,7 +719,8 @@
         <label>挽き肉</label> <input type="number" name="挽き肉" size="4px"><br>
         <label>ハム</label> <input type="number" name="ハム" size="4px"><br>
         <label>ソーセージ</label> <input type="number" name="ソーセージ" size="4px"><br>
-
+      </div>
+      <div class="I2 close">
         <h3>野菜</h3><br>
         <label>キャベツ</label> <input type="number" name="キャベツ" size="4px"><br>
         <label>レタス</label> <input type="number" name="レタス" size="4px"><br>
@@ -583,24 +736,28 @@
         <label>にんじん</label> <input type="number" name="にんじん" size="4px"><br>
         <label>大根</label> <input type="number" name="大根" size="4px"><br>
         <label>生姜</label> <input type="number" name="生姜" size="4px"><br>
-
+      </div>
+      <div class="I3 close">
         <h3>イモ類</h3><br>
         <label>じゃがいも</label> <input type="number" name="じゃがいも" size="4px"><br>
         <label>サツマイモ</label> <input type="number" name="サツマイモ" size="4px"><br>
-
+      </div>
+      <div class="I4 close">
         <h3>乳製品・卵</h3><br>
         <label>牛乳</label> <input type="number" name="牛乳" size="4px"><br>
         <label>チーズ</label> <input type="number" name="チーズ" size="4px"><br>
         <label>ヨーグルト</label> <input type="number" name="ヨーグルト" size="4px"><br>
         <label>バニラヨーグルト</label> <input type="number" name="バニラヨーグルト" size="4px"><br>
         <label>鶏卵</label> <input type="number" name="鶏卵" size="4px"><br>
-
+      </div>
+      <div class="I5 close">
         <h3>豆・豆腐</h3><br>
         <label>豆腐</label> <input type="number" name="豆腐" size="4px"><br>
         <label>油揚げ</label> <input type="number" name="油揚げ" size="4px"><br>
         <label>厚揚げ</label> <input type="number" name="厚揚げ" size="4px"><br>
         <label>納豆</label> <input type="number" name="納豆" size="4px"><br>
-
+      </div>
+      <div class="I6 close">
         <h3>麺類</h3><br>
         <label>うどん</label> <input type="number" name="うどん" size="4px"><br>
         <label>そば</label> <input type="number" name="そば" size="4px"><br>
@@ -609,20 +766,97 @@
         <label>焼きそば</label> <input type="number" name="焼きそば" size="4px"><br>
         <label>パスタ</label> <input type="number" name="パスタ" size="4px"><br>
         <label>辛ラーメン</label> <input type="number" name="辛ラーメン" size="4px"><br>
-
+      </div>
+      <div class="I7 close">
         <h3>その他</h3><br>
         <label>カレー粉</label> <input type="number" name="カレー粉" size="4px"><br>
         <label>トマト缶</label> <input type="number" name="トマト缶" size="4px"><br>
         <label>冷凍餃子</label> <input type="number" name="冷凍餃子" size="4px"><br>
         <label>食パン</label> <input type="number" name="食パン" size="4px"><br>
-
+      </div>
 
 
 
         <br /><br>
-        <input type="submit" value="送信">
+        <input type="submit" value="送信" class="iSubmit">
 
       </form>
+
+      <script>
+        const iSelect = document.getElementById('ingredients')
+        const I1 = document.querySelector('.I1')
+        const I2 = document.querySelector('.I2')
+        const I3 = document.querySelector('.I3')
+        const I4 = document.querySelector('.I4')
+        const I5 = document.querySelector('.I5')
+        const I6 = document.querySelector('.I6')
+        const I7 = document.querySelector('.I7')
+       
+        
+  
+        iSelect.addEventListener("change" , () => {
+          const iSelectedOption = iSelect.value; 
+          
+          if(iSelectedOption == 1){
+             I1.classList.toggle('close');
+             I2.classList.add('close');
+             I3.classList.add('close');
+             I4.classList.add('close');
+             I5.classList.add('close');
+             I6.classList.add('close');
+             I7.classList.add('close');
+          } else if (iSelectedOption == 2){
+             I2.classList.toggle('close');
+             I1.classList.add('close');
+             I3.classList.add('close');
+             I4.classList.add('close');
+             I5.classList.add('close');
+             I6.classList.add('close');
+             I7.classList.add('close');
+          } else if (iSelectedOption == 3){
+             I3.classList.toggle('close');
+             I2.classList.add('close');
+             I1.classList.add('close');
+             I4.classList.add('close');
+             I5.classList.add('close');
+             I6.classList.add('close');
+             I7.classList.add('close');
+          } else if (iSelectedOption == 4){
+             I4.classList.toggle('close');
+             I2.classList.add('close');
+             I3.classList.add('close');
+             I1.classList.add('close');
+             I5.classList.add('close');
+             I6.classList.add('close');
+             I7.classList.add('close');
+          } else if (iSelectedOption == 5){
+             I5.classList.toggle('close');
+             I2.classList.add('close');
+             I3.classList.add('close');
+             I4.classList.add('close');
+             I1.classList.add('close');
+             I6.classList.add('close');
+             I7.classList.add('close');
+          } else if (iSelectedOption == 6){
+             I6.classList.toggle('close');
+             I2.classList.add('close');
+             I3.classList.add('close');
+             I4.classList.add('close');
+             I5.classList.add('close');
+             I1.classList.add('close');
+             I7.classList.add('close');
+          } else if (iSelectedOption == 7){
+             I7.classList.toggle('close');
+             I2.classList.add('close');
+             I3.classList.add('close');
+             I4.classList.add('close');
+             I5.classList.add('close');
+             I6.classList.add('close');
+             I1.classList.add('close');
+          }
+  
+      });
+      </script>
 
             <br>
       <br>
@@ -743,7 +977,20 @@
           padding: 0 10px ;
           
         }
+
+        .close{
+          display: none;
+        }
+
+        input.cSubmit{
+          font-size: 200%;
+          background-color:#ffa79f ;
+        }
        
+        input.iSubmit{
+          font-size: 200%;
+          background-color:#9fcdff ;
+        }
     
       </style>
 
