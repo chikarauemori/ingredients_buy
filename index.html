@@ -3,10 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <title>Document</title>
   </head>
   <body>
     <h2>買い物リスト</h2>
+
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 20px auto;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px 12px;
+        text-align: center;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+
+      div.stock{
+        display: flex;
+      }
+
+      div.stockBox{
+        width: 40%;
+      }
+    </style>
+  </head>
+
+
+
     <h1>調味料・食材 〜購入〜</h1>
     <h2>調味料</h2>
     <form 
@@ -857,6 +887,90 @@
   
       });
       </script>
+
+<div class="stock">
+  <div class="condimentStock stockBox">
+    <h2 style="text-align: center">調味料<br />(在庫数なし一覧)</h2>
+
+    <table id="rankingTable4">
+      <thead>
+        <tr>
+          <th>調味料</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="ingredientsStock stockBox">
+    <h2 style="text-align: center">食材<br>(在庫数なし一覧)</h2>
+
+    <table id="rankingTable3">
+      <thead>
+        <tr>
+          <th>食材</th>
+
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+  </div>
+
+</div>
+
+
+    <script>
+      fetch(
+        "https://docs.google.com/spreadsheets/d/1yg1MfqzVwBiU3Vv4UPnheHDZ-jGq86awetIm2BLvO7U/export?format=csv&gid=0"
+      )
+        .then((response) => response.text())
+        .then((csvText) => {
+          const parsedData = Papa.parse(csvText, { header: true });
+          const stampData = parsedData.data;
+
+          const tableBody4 = document.querySelector("#rankingTable4 tbody");
+
+          stampData.forEach((entry) => {
+            if (!entry.name3 || !entry.inventory) return;
+
+            const row4 = document.createElement("tr");
+            row4.innerHTML = `
+            <td>${entry.name3}</td>
+
+           
+          `;
+            tableBody4.appendChild(row4);
+          });
+        })
+
+        .catch((error) => console.error("Error fetching CSV 3:", error));
+
+      fetch(
+        "https://docs.google.com/spreadsheets/d/1Sv68c9-PLGsoJ_Ec9yHBDKJZ9H3UIyl8zVE7Lu2DrM0/export?format=csv&gid=0"
+      )
+        .then((response) => response.text())
+        .then((csvText) => {
+          const parsedData2 = Papa.parse(csvText, { header: true });
+          const stampData2 = parsedData2.data;
+
+          const tableBody3 = document.querySelector("#rankingTable3 tbody");
+
+          stampData2.forEach((entry) => {
+            if (!entry.name4 || !entry.inventory4 || !entry.unit4) return;
+
+            const row3 = document.createElement("tr");
+            row3.innerHTML = `
+            <td>${entry.name4}</td>
+            
+           
+          `;
+            tableBody3.appendChild(row3);
+          });
+        })
+
+        .catch((error) => console.error("Error fetching CSV 3:", error));
+    </script>
 
             <br>
       <br>
