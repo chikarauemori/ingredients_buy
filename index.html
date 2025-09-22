@@ -7,7 +7,88 @@
     <title>Document</title>
   </head>
   <body>
-    <h2>買い物リスト</h2>
+    
+    <div class="note close" id="note">
+      <div class="closeBox"><h2 class="noteTxt">買い物リスト</h2><button id="listClose">閉じる</button></div>
+      <button id="noteBtn" class="noteBtn">新規メモ</button>
+      <h2 id="memo_list"></h2>
+    </div>
+
+    <script>
+      function memo(){
+        
+        const input = prompt("入力してください");
+        const newElem = document.createElement("li");
+        newElem.textContent = input;
+        newElem.className = 'newElem';
+
+        const checkBox = document.createElement('input');
+        checkBox.type = 'checkbox';
+        checkBox.value = input;
+        
+
+        const memo_list = document.getElementById('memo_list');
+        memo_list.appendChild(newElem);
+
+        const list = document.querySelectorAll('.newElem');
+        console.log(list);
+
+        for (let i = 0;  i<list.length; i++){
+          list[i].appendChild(checkBox);
+        }
+        
+        
+      }
+
+      const btn = document.getElementById('noteBtn');
+      btn.addEventListener('click' , memo);
+    </script>
+
+
+
+    <style>
+
+      
+      
+      div.note{
+        height: 80vh;
+        padding: 10px;
+        background-color: #FFF9B1;
+       
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.22);
+        position: fixed;
+        width: 90%;
+        z-index: 999;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      
+
+      div.note.close{
+        display:none;
+      }
+
+      
+
+      h2.noteTxt{
+        text-align: center;
+        border-bottom: double 5px;
+      }
+
+      button#listClose{
+        position:absolute;
+        top:30px;
+        right: 30px
+      }
+
+      h2#memo_list li{
+        border-bottom: solid 2px;
+        margin: 5px;
+      }
+    </style>
 
     <style>
       table {
@@ -36,8 +117,9 @@
   </head>
 
 
-
+  <div class="main">
     <h1>調味料・食材 〜購入〜</h1>
+    <div id="listOpen"><h2 class="listOpen">買い物リストを表示</h2></div>
     <h2>調味料</h2>
     <form 
     id="userForm1"
@@ -895,7 +977,7 @@
     <table id="rankingTable4">
       <thead>
         <tr>
-          <th>調味料</th>
+          <th class="tableC">調味料</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -908,7 +990,7 @@
     <table id="rankingTable3">
       <thead>
         <tr>
-          <th>食材</th>
+          <th class="tableI">食材</th>
 
         </tr>
       </thead>
@@ -918,6 +1000,18 @@
   </div>
 
 </div>
+
+</div>
+
+<style>
+  th.tableC{
+    background-color: #ffa79f ;
+  }
+
+  th.tableI{
+    background-color: #9fcdff;
+  }
+</style>
 
 
     <script>
@@ -1099,11 +1193,21 @@
         input.cSubmit{
           font-size: 200%;
           background-color:#ffa79f ;
+          box-shadow: 5px 5px 5px rgba(0,0,0,0.22);
         }
        
         input.iSubmit{
           font-size: 200%;
           background-color:#9fcdff ;
+          box-shadow: 5px 5px 5px rgba(0,0,0,0.22);
+        }
+
+        h2.listOpen{
+          background-color: #FFF9B1;
+          padding:20px;
+          text-align: center;
+          border-radius: 100px;
+          box-shadow: 5px 5px 5px rgba(0,0,0,0.22);
         }
     
       </style>
@@ -1125,6 +1229,27 @@
         console.error("データ取得エラー:", err);
       });
   </script>
+
+<script>
+  const listOpen = document.getElementById('listOpen');
+
+    console.log(listOpen);
+    
+    
+    listOpen.addEventListener('click' , function(){
+      const note = document.getElementById('note');
+    note.classList.remove('close');
+    });
+
+    const listClose = document.getElementById('listClose');
+
+    listClose.addEventListener('click' , function(){
+      const note = document.getElementById('note');
+    note.classList.add('close');
+    });
+  
+
+</script>
    
     </form>
   </body>
