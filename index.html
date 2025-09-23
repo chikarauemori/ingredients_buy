@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <title>Document</title>
   </head>
@@ -88,6 +88,11 @@
         border-bottom: solid 2px;
         margin: 5px;
       }
+
+      select{
+        font-size: 150%;
+      }
+     
     </style>
 
     <style>
@@ -123,7 +128,7 @@
     <h2>調味料</h2>
     <form 
     id="userForm1"
-    action="https://script.google.com/macros/s/AKfycbxkJb_Pi8UvZ7ij_BPbgJhA8BJ3RKNdVKzVp3tdLAp9GYBRbFn2dY61uNQqGwlxnCI/exec"
+    action="https://script.google.com/macros/s/AKfycbzTRm0hk-V0VkXlIhRgBauEmILGL7_m3viUngknbyJAk-w4zhdl6ISZ6cNT6PEA9cfu/exec"
     method="post"
     >
 
@@ -800,12 +805,12 @@
       <h2>食材</h2>
       <form 
     id="userForm2"
-    action="https://script.google.com/macros/s/AKfycbxnP2WGi_80XS0hSX9N4YlHSrKQtZru8WX3-ADjEqjElygOVslORaTej5Yek8IrAp1z7g/exec"
+    action="https://script.google.com/macros/s/AKfycbxjYA9rR1oGjEHedzT7bcquihdW9crpnTnsSwTF_huzsTVu2g8E-WF5L0bplONh9HH5AQ/exec"
     method="post"
     >
 
-    <select name="調味料" id="ingredients">
-      <option>調味料のジャンルを選択</option>
+    <select name="食材" id="ingredients">
+      <option>食材のジャンルを選択</option>
       <option value="1">肉類</option>
       <option value="2">野菜</option>
       <option value="3">イモ類</option>
@@ -972,7 +977,7 @@
 
 <div class="stock">
   <div class="condimentStock stockBox">
-    <h2 style="text-align: center">調味料<br />(在庫数なし一覧)</h2>
+    <h2 style="text-align: center">調味料<br />(在庫数なし)</h2>
 
     <table id="rankingTable4">
       <thead>
@@ -985,7 +990,7 @@
   </div>
 
   <div class="ingredientsStock stockBox">
-    <h2 style="text-align: center">食材<br>(在庫数なし一覧)</h2>
+    <h2 style="text-align: center">食材<br>(在庫数なし)</h2>
 
     <table id="rankingTable3">
       <thead>
